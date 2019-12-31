@@ -587,8 +587,9 @@ console.log(array.length);
 const start = Date.now();
 let helper = {};
 const final = array.reduce( (total, current, currentIndex, arr) => {
-    if(helper[current.name] !== undefined) {
-        total[helper[current.name]].quantity += arr[currentIndex].quantity;
+	var x = helper[current.name]; //13
+    if(x !== undefined) {
+        total[x].quantity += arr[currentIndex].quantity;
         return total;
     } else {
         total.push(current);
