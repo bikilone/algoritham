@@ -8,16 +8,23 @@ function generateNum(digits) {
     }
 }
 
-var arr = [];
-for(let i = 0; i < 10; i++) {
-    if(i<4) {
-        arr.push(generateNum(1))
-    } else if (i == 4) {
-        arr.push(generateNum(2))
-    }  else if ( i === 5) {
-        arr.push(generateNum(3))
-    }
+function generateRandomResult(){
+    return Math.floor(Math.random()*1000);
 }
 
-console.log(arr);
+function generateAllNums() {
+    var arr = [];
+    for(let i = 0; i < 10; i++) {
+        if(i<4) {
+            arr.push(generateNum(1))
+        } else if (i == 4) {
+            arr.push(generateNum(2))
+        }  else if ( i === 5) {
+            arr.push(generateNum(3))
+        }
+    }
+    return arr;
+}
+
+console.log(generateRandomResult());
 
