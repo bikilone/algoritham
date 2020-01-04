@@ -586,19 +586,19 @@ console.log(array.length);
 
 const start = Date.now();
 let helper = {};
-const final = array.reduce( (total, current, currentIndex, arr) => {
-	var x = helper[current.name]; //13
+const final = [];
+for(let i = 0; i < array.length; i++) {
+    var current = array[i];
+    var x = helper[current.name];
     if(x !== undefined) {
-        total[x].quantity += arr[currentIndex].quantity;
-        return total;
+        final[x].quantity = final[x].quantity + array[i].quantity;
     } else {
-        total.push(current);
-        helper[current.name] = total.length - 1;
-        return total;
+        final.push(JSON.parse(JSON.stringify(current)));
+        helper[current.name] = final.length -1;
     }
-}, [])
+}
 const end = Date.now();
-console.log(start, end, end - start, final, helper) //470
+console.log(end - start, final, helper)
 
 // // MARE DRUGI PUT
 // console.log(array.length)
